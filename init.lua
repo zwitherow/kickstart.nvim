@@ -16,8 +16,8 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -532,6 +532,7 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
+        svelte = {},
         --
 
         lua_ls = {
@@ -759,10 +760,6 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
 
-      -- Transparency
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
@@ -833,6 +830,9 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  {
+    'xiyaowong/transparent.nvim',
+  },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -847,7 +847,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
