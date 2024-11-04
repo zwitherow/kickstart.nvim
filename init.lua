@@ -629,7 +629,7 @@ require('lazy').setup({
           lsp_format_opt = 'fallback'
         end
         return {
-          timeout_ms = 500,
+          timeout_ms = 1500,
           lsp_format = lsp_format_opt,
         }
       end,
@@ -857,6 +857,11 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+
+  {
+    'github/copilot.vim',
+  },
+
   {
     'xiyaowong/transparent.nvim',
     init = function()
@@ -867,6 +872,23 @@ require('lazy').setup({
         },
       }
     end,
+  },
+
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
