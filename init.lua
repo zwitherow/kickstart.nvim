@@ -172,6 +172,17 @@ require('lazy').setup({
     },
   },
 
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        -- config
+      }
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } },
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -885,10 +896,9 @@ require('lazy').setup({
       vim.g.barbar_auto_setup = false
     end,
     opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
+      sidebar_filetypes = {
+        ['neo-tree'] = { event = 'BufWipeout' },
+      },
     },
   },
 
